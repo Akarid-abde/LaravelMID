@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function cvs(){
         return $this->hasMany('App\CV');
     }
+
+      public function experiences(){
+        return $this->hasMany('App\Experience');
+    }
 }

@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+<!--     <script src="{{ asset('js/vue.js') }}" defer></script> -->
     <script src="{{ asset('assets/js/bootstrap.min.js') }}" defer></script>
     <!-- <script src="{{ asset('assets/js/errors.js') }}" defer></script> -->
 
@@ -21,7 +22,11 @@
     <!-- Styles -->
     <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('assets/css/errors.css') }}" rel="stylesheet"> -->
-    <!-- <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+
+<!--     <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script> -->
+    <script>window.laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};</script>
 </head>
 <body>
 
@@ -44,8 +49,13 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+      <main class="py-4">
+            @yield('javascripts')
+      </main>
+
     </div>
 
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>

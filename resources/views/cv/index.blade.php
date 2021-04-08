@@ -61,7 +61,8 @@
 						{{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <a href="" class="btn btn-primary">Details</a>
-						<a href="{{ url('cvs/'.$cv->id.'/edit') }}" class="btn btn-default">edit</a>
+		<a href="{{ url('cvs/'.$cv->id.'/edit') }}" class="btn btn-warning">edit</a>
+		<a href="{{ url('cvs/'.$cv->id) }}" class="btn btn-default">show</a>
 	@can('delete',$cv)
    <button type="submit"  class="btn btn-danger">Delete</button>
     @endcan

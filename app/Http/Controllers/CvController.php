@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cv;
+use App\Experience;
 use Illuminate\Http\Request;
 use App\Http\Requests\cvRequest;
 use Illuminate\Support\Facades\Storage;
@@ -23,7 +24,6 @@ class CvController extends Controller
      */
     public function index()
     {
-
        if(Auth::user()->is_admin){
             $list = Cv::all();
        }else{
@@ -76,9 +76,9 @@ class CvController extends Controller
      * @param  \App\Cv  $cv
      * @return \Illuminate\Http\Response
      */
-    public function show(Cv $cv)
+    public function show($id)
     {
-        //
+        return view('cv.show',['id' => $id]);
     }
 
     /**
@@ -129,4 +129,9 @@ class CvController extends Controller
         session()->flash('delete','la supprission est bien fait ');
         return redirect('cvs');
     }
+
+     public function getExperiences($id){
+        $cv  = Cv::find($id);
+        return  $cv->experiences;
+     }
 }
